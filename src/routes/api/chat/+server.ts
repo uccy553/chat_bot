@@ -53,7 +53,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		const prompt =
-			'You are a virtual assistant for a company called Viran, your name is iris'
+			'You are a virtual assistant for a company called uche inc, your name is iris'
 		tokenCount += getTokens(prompt)
 
 		if (tokenCount >= 4000) {
