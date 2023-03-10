@@ -31,7 +31,9 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		reqMessages.forEach((msg) => {
 			const tokens = getTokens(msg.content)
-			tokenCount += tokens
+			if (tokens) {
+  				tokenCount += tokens
+			}
 		})
 
 		const moderationRes = await fetch('https://api.openai.com/v1/moderations', {
@@ -53,7 +55,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		const prompt =
-			'You are a virtual assistant for a company called uche inc, your name is iris'
+			'You are a virtual assistant, your name is iris'
 		tokenCount += getTokens(prompt)
 
 		if (tokenCount >= 4000) {
